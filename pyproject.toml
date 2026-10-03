@@ -1,0 +1,24 @@
+[project]
+name = "jev-clef-experiments"
+version = "0.1.0"
+description = "Hobby experiments with System One decision models (Jev, Clef) driving simulators"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy",
+    "pillow",
+    "gymnasium>=1.0",
+    "nes-py>=9.0.1",
+    "gym-super-mario-bros>=9.1.0",
+]
+
+[project.scripts]
+pendulum = "pendulum.run:main"
+mario = "mario.run:main"
+double-pendulum = "double_pendulum.run:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["common", "pendulum", "double_pendulum", "mario"]
